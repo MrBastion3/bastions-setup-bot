@@ -1,7 +1,7 @@
 {
   "name": "bastions-discord-setup-bot",
   "version": "1.0.0",
-  "description": "Discord.js bot to automatically configure roles and channels for Bastions Tools",
+  "description": "Discord.js bot to automatically configure roles and channels for Bastions Dayz Tools",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"

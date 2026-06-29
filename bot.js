@@ -66,7 +66,7 @@ client.on('guildMemberAdd', async (member) => {
   const downloadsChannel = member.guild.channels.cache.find(c => c.name === '📥-downloads');
 
   if (welcomeChannel) {
-    welcomeChannel.send(`👋 Hey ${member}, welcome to **Bastions Tools**! Head over to ${rulesChannel || '#📜-rules'} to unlock the server, and check out ${downloadsChannel || '#📥-downloads'} to install the desktop suite! 🚀`).catch(console.error);
+    welcomeChannel.send(`👋 Hey ${member}, welcome to **Bastions Dayz Tools**! Head over to ${rulesChannel || '#📜-rules'} to unlock the server, and check out ${downloadsChannel || '#📥-downloads'} to install the desktop suite! 🚀`).catch(console.error);
   }
 });
 
@@ -123,7 +123,7 @@ client.on('messageCreate', async (message) => {
     // Download Trigger
     if (textLower.match(/\b(download|installer|setup file|get app|where is the link)\b/)) {
       const dlChannel = message.guild.channels.cache.find(c => c.name === '📥-downloads');
-      return message.reply(`📥 **Download Bastions Tools Desktop Suite:**\nYou can download the latest installer files in the ${dlChannel || '#📥-downloads'} channel, or grab the direct installer here: \n💾 **Installer (v1.1.6):** <https://github.com/MrBastion3/bastions-tools-releases1/releases/download/v1.1.6/Bastions-Dayz-Tools-Setup-1.1.6.exe>`).catch(() => {});
+      return message.reply(`📥 **Download Bastions Dayz Tools Desktop Suite:**\nYou can download the latest installer files in the ${dlChannel || '#📥-downloads'} channel, or grab the direct installer here: \n💾 **Installer (v1.3.7):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.7/Bastions-Dayz-Tools-1.3.7.exe>`).catch(() => {});
     }
 
     // License Trigger
@@ -142,7 +142,7 @@ client.on('messageCreate', async (message) => {
 
   // COMMAND: CLEAR BASTIONS
   if (command === 'clear-bastions') {
-    const statusMsg = await message.reply('⏳ **Clearing Bastions Tools configuration...**');
+    const statusMsg = await message.reply('⏳ **Clearing Bastions Dayz Tools configuration...**');
 
     try {
       await updateStatus(statusMsg, '⏳ Deleting channels and categories...');
@@ -168,14 +168,14 @@ client.on('messageCreate', async (message) => {
         const isTargetCategoryParent = parentName && targetCategoryNames.includes(parentName);
 
         if (isTargetChannel || isTargetCategoryParent) {
-          await channel.delete('Bastions Tools Reset').catch(() => {});
+          await channel.delete('Bastions Dayz Tools Reset').catch(() => {});
         }
       }
 
       const remainingChannels = await message.guild.channels.fetch();
       for (const [_, channel] of remainingChannels) {
         if (channel && channel.type === ChannelType.GuildCategory && targetCategoryNames.includes(channel.name.toLowerCase())) {
-          await channel.delete('Bastions Tools Reset').catch(() => {});
+          await channel.delete('Bastions Dayz Tools Reset').catch(() => {});
         }
       }
 
@@ -185,7 +185,7 @@ client.on('messageCreate', async (message) => {
 
       for (const [_, role] of guildRoles) {
         if (targetRoles.includes(role.name)) {
-          await role.delete('Bastions Tools Reset').catch(() => {});
+          await role.delete('Bastions Dayz Tools Reset').catch(() => {});
         }
       }
 
@@ -199,7 +199,7 @@ client.on('messageCreate', async (message) => {
 
   // COMMAND: SETUP BASTIONS
   if (command === 'setup-bastions') {
-    const statusMsg = await message.reply('⏳ **Initializing Bastions Tools Server Setup...**');
+    const statusMsg = await message.reply('⏳ **Initializing Bastions Dayz Tools Community Setup...**');
 
     try {
       await updateStatus(statusMsg, '⏳ Creating Roles...');
@@ -221,7 +221,7 @@ client.on('messageCreate', async (message) => {
             name: rCfg.name,
             color: rCfg.color,
             hoist: rCfg.hoist,
-            reason: 'Bastions Tools Setup'
+            reason: 'Bastions Dayz Tools Setup'
           });
         }
         roles[rCfg.name] = role;
@@ -248,7 +248,7 @@ client.on('messageCreate', async (message) => {
       const cAnnounce = await createTextChannel(message.guild, '📢-announcements', welcomeCategory, readOnlyOverrides);
       const cDownloads = await createTextChannel(message.guild, '📥-downloads', welcomeCategory, readOnlyOverrides);
 
-      await cWelcome.send('👋 **Welcome to Bastions Tools community server!**\nPlease read our server #📜-rules and verify your account to unlock the rest of the channels. If you have a Premium Key, check out #📥-downloads to get started!');
+      await cWelcome.send('👋 **Welcome to Bastions Dayz Tools community server!**\nPlease read our server #📜-rules and verify your account to unlock the rest of the channels. If you have a Premium Key, check out #📥-downloads to get started!');
       
       const rulesEmbed = new EmbedBuilder()
         .setTitle('📜 Server Rules & Verification')
@@ -275,11 +275,11 @@ client.on('messageCreate', async (message) => {
       await cAnnounce.send('📢 **Welcome to the Announcements channel!**\nAll major tool updates, feature releases, changelogs, and licensing updates will be posted here. Make sure to keep notifications enabled so you don\'t miss out on important announcements.');
 
       await cDownloads.send({
-        content: `📥 **Download Bastions Tools Desktop Suite**
+        content: `📥 **Download Bastions Dayz Tools Desktop Suite**
 The latest and most secure version of the server configuration manager is always hosted at our portal.
 
 🔗 **Landing Page Website:** <https://bastions-dayz-tools.vercel.app/>
-💾 **Direct Installer (v1.1.6):** <https://github.com/MrBastion3/bastions-tools-releases1/releases/download/v1.1.6/Bastions-Dayz-Tools-Setup-1.1.6.exe>
+💾 **Direct Installer (v1.3.7):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.7/Bastions-Dayz-Tools-1.3.7.exe>
 
 > [!NOTE]
 > *If Windows Defender or SmartScreen blocks the installation, click **"More Info"** ➔ **"Run Anyway"**. This is normal for unsigned application binaries.*`
@@ -323,7 +323,7 @@ The latest and most secure version of the server configuration manager is always
       ];
       await createTextChannel(message.guild, '📋-ticket-logs', supportCategory, staffLogOverrides);
 
-      await cFaq.send(`❓ **Bastions Tools Frequently Asked Questions (FAQ)**
+      await cFaq.send(`❓ **Bastions Dayz Tools Frequently Asked Questions (FAQ)**
 
 **Q: Why does Windows block the setup file?**
 A: Since the app executable is compiled locally and is not yet digitally signed, Windows Defender SmartScreen blocks it. Click **"More Info"** ➔ **"Run Anyway"** to install.
@@ -350,7 +350,7 @@ If you run into an error or crash inside the editor, please post a new report us
 *Please verify if your bug has already been reported before posting.*`).then(m => m.pin());
 
       const ticketEmbed = new EmbedBuilder()
-        .setTitle('🎫 Bastions Tools Support Desk')
+        .setTitle('🎫 Bastions Dayz Tools Support Desk')
         .setDescription('Need assistance? Click the button below that matches your request to open a private ticket with our Support Staff.')
         .setColor('#ffbd00');
 
@@ -396,7 +396,7 @@ If you run into an error or crash inside the editor, please post a new report us
       await cBitcoinHeist.send(`🪙 **Bitcoin Heist Mod — Overview & Configs**
 Welcome to the official channel for the **Bitcoin Heist** mod! 
 
-- Configure Crypto Mining USB Drives, Bitcoin ATMs, and Hackable Terminals directly using the **Bitcoin Heist** module inside Bastions Tools.
+- Configure Crypto Mining USB Drives, Bitcoin ATMs, and Hackable Terminals directly using the **Bitcoin Heist** module inside Bastions Dayz Tools.
 - Share your spawn coordinates, custom terminal event settings, and ATM exchange rates here!
 
 🔗 **Steam Workshop Link:** <https://steamcommunity.com/sharedfiles/filedetails/?id=3750034137>`).then(m => m.pin());
@@ -404,7 +404,7 @@ Welcome to the official channel for the **Bitcoin Heist** mod!
       await cMVSBastions.send(`🦺 **Modular Vest System — Bastions Edition — Overview & Configs**
 Welcome to the official channel for the **Modular Vest System - Bastions Edition** mod!
 
-- Configure vest attachments, loadout presets, item slot scales, and weight configurations using the editor tools inside Bastions Tools.
+- Configure vest attachments, loadout presets, item slot scales, and weight configurations using the editor tools inside Bastions Dayz Tools.
 - Share your preset setups, slot modifications, and custom loadout configs here!
 
 🔗 **Steam Workshop Link:** <https://steamcommunity.com/sharedfiles/filedetails/?id=3748668435>`).then(m => m.pin());

@@ -1,6 +1,6 @@
-# Bastions Tools — Discord Auto-Setup Bot
+# Bastions Dayz Tools — Discord Auto-Setup Bot
 
-This is a lightweight Discord.js v14 bot designed to instantly construct the entire roles, categories, and channels infrastructure for the Bastions Tools community server.
+This is a lightweight Discord.js v14 bot designed to instantly construct the entire roles, categories, and channels infrastructure for the Bastions Dayz Tools community server.
 
 ---
 
