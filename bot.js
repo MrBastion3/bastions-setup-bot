@@ -123,7 +123,7 @@ client.on('messageCreate', async (message) => {
     // Download Trigger
     if (textLower.match(/\b(download|installer|setup file|get app|where is the link)\b/)) {
       const dlChannel = message.guild.channels.cache.find(c => c.name === '📥-downloads');
-      return message.reply(`📥 **Download Bastions Dayz Tools Desktop Suite:**\nYou can download the latest installer files in the ${dlChannel || '#📥-downloads'} channel, or grab the direct installer here: \n💾 **Installer (v1.3.7):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.7/Bastions-Dayz-Tools-1.3.7.exe>`).catch(() => {});
+      return message.reply(`📥 **Download Bastions Dayz Tools Desktop Suite:**\nYou can download the latest installer files in the ${dlChannel || '#📥-downloads'} channel, or grab the direct installer here: \n💾 **Installer (v1.3.8):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.8/Bastions-Dayz-Tools-1.3.8.exe>`).catch(() => {});
     }
 
     // License Trigger
@@ -279,7 +279,7 @@ client.on('messageCreate', async (message) => {
 The latest and most secure version of the server configuration manager is always hosted at our portal.
 
 🔗 **Landing Page Website:** <https://bastions-dayz-tools.vercel.app/>
-💾 **Direct Installer (v1.3.7):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.7/Bastions-Dayz-Tools-1.3.7.exe>
+💾 **Direct Installer (v1.3.8):** <https://github.com/MrBastion3/Bastions_Dayz_Tools/releases/download/v1.3.8/Bastions-Dayz-Tools-1.3.8.exe>
 
 > [!NOTE]
 > *If Windows Defender or SmartScreen blocks the installation, click **"More Info"** ➔ **"Run Anyway"**. This is normal for unsigned application binaries.*`
